@@ -1,0 +1,51 @@
+{
+  "workflowApiVersion": "1.1",
+  "metaData": {
+    "icon": "images/icon.png",
+    "category": "message"
+  },
+  "type": "REST",
+  "lang": {
+    "en-US": {
+      "name": "Pushy Push Send",
+      "description": "Send push notifications via Pushy REST API"
+    }
+  },
+  "arguments": {
+    "execute": {
+      "inArguments": [
+        {
+          "deviceToken": "{{Contact.Attribute.Push.DeviceToken}}",
+          "title": "{{Interaction.PushTitle}}",
+          "message": "{{Interaction.PushMessage}}"
+        }
+      ],
+      "url": "{{JourneyBuilderBaseUrl}}/activity/execute",
+      "verb": "POST",
+      "body": "",
+      "header": "",
+      "format": "json",
+      "useJwt": false
+    }
+  },
+  "configurationArguments": {
+    "applicationExtensionKey": "pushyPush"
+  },
+  "userInterfaces": {
+    "configModal": {
+      "height": 200,
+      "width": 400,
+      "url": "index.html"
+    }
+  },
+  "outcomes": [
+    {
+      "arguments": {
+        "branchResult": "Success"
+      },
+      "metaData": {
+        "label": "Success"
+      }
+    }
+  ]
+}
